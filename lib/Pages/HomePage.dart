@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/menu_drawer.dart';
+
 // Colors
 //Color(0xFF004A8D)
 //Color(0xFF0E6094)
@@ -22,14 +24,15 @@ class HomePage extends StatelessWidget {
             width: 120,
           ),
           centerTitle: true,
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.menu),
-          ),
+          // leading: IconButton(
+          //   onPressed: () {},
+          //   icon: const Icon(Icons.menu),
+          // ),
           actions: [
             IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           ],
         ),
+        drawer: const MenuDrawer(),
       ),
     );
   }
