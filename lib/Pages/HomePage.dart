@@ -13,26 +13,46 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color(0xFF0052A1),
-          elevation: 1,
-          title: Image.asset(
-            'assets/logo-branca.png',
-            width: 120,
-          ),
-          centerTitle: true,
-          // leading: IconButton(
-          //   onPressed: () {},
-          //   icon: const Icon(Icons.menu),
-          // ),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF0052A1),
+        elevation: 1,
+        title: Image.asset(
+          'assets/logo-branca.png',
+          width: 120,
         ),
-        drawer: const MenuDrawer(),
+        centerTitle: true,
+        // leading: IconButton(
+        //   onPressed: () {},
+        //   icon: const Icon(Icons.menu),
+        // ),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+        ],
+      ),
+      drawer: const MenuDrawer(),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Business',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'Projetos',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'Projetos',
+          ),
+        ],
+        currentIndex: 0,
+        selectedItemColor: Colors.amber[800],
       ),
     );
   }
