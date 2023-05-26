@@ -10,81 +10,91 @@ class MenuDrawer extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-              child: ListView(
-            children: [
-              SizedBox(
-                height: 63,
-                child: DrawerHeader(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  child: Image.asset(
-                    'assets/logo-branca.png',
-                    width: 10,
+            child: ListView(
+              children: [
+                SizedBox(
+                  height: 63,
+                  child: DrawerHeader(
+                    padding: const EdgeInsets.only(top: 10, bottom: 10),
+                    child: Image.asset(
+                      'assets/logo-branca.png',
+                      width: 10,
+                    ),
                   ),
                 ),
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.all_inbox,
-                  color: Color(0xFFFFFFFF),
+                ListTile(
+                  leading: const Icon(
+                    Icons.all_inbox,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                  title: const Text(
+                    'Projetos',
+                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                  ),
+                  onTap: () {
+                    //Função para abrir a página projetos
+                  },
                 ),
-                title: const Text(
-                  'Projetos',
-                  style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                ListTile(
+                  leading: const Icon(
+                    Icons.calendar_month,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                  title: const Text(
+                    'Eventos',
+                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                  ),
+                  onTap: () {
+                    //Função para abrir a página projetos
+                  },
                 ),
-                onTap: () {
-                  //Função para abrir a página projetos
-                },
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.calendar_month,
-                  color: Color(0xFFFFFFFF),
+                ListTile(
+                  leading: const Icon(
+                    Icons.article_outlined,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                  title: const Text(
+                    'Mural de Pedidos',
+                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                  ),
+                  onTap: () {
+                    //Função para abrir a página projetos
+                  },
                 ),
-                title: const Text(
-                  'Eventos',
-                  style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                ListTile(
+                  leading: const Icon(
+                    Icons.chat_bubble_outline,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                  title: const Text(
+                    'Fale Conosco',
+                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                  ),
+                  onTap: () {
+                    //Função para abrir a página projetos
+                  },
                 ),
-                onTap: () {
-                  //Função para abrir a página projetos
-                },
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.article_outlined,
-                  color: Color(0xFFFFFFFF),
+                const Divider(
+                  color: Colors.white,
                 ),
-                title: const Text(
-                  'Mural de Pedidos',
-                  style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
-                ),
-                onTap: () {
-                  //Função para abrir a página projetos
-                },
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.chat_bubble_outline,
-                  color: Color(0xFFFFFFFF),
-                ),
-                title: const Text(
-                  'Fale Conosco',
-                  style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
-                ),
-                onTap: () {
-                  //Função para abrir a página projetos
-                },
-              ),
-              const Divider(
+                const ListTile(
+                  title: Text(
+                    'Política de Privacidade',
+                    style: TextStyle(color: Color(0xFFFFFFFF)),
+                  ),
+                )
+              ],
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'Versão 1.0.0',
+              style: TextStyle(
                 color: Colors.white,
               ),
-              const ListTile(
-                title: Text(
-                  'Política de Privacidade',
-                  style: TextStyle(color: Color(0xFFFFFFFF)),
-                ),
-              )
-            ],
-          ))
+            ),
+          ),
         ],
       ),
     );
