@@ -61,28 +61,59 @@ class MenuDrawer extends StatelessWidget {
                     //Função para abrir a página projetos
                   },
                 ),
+                const Divider(
+                  color: Colors.white,
+                ),
                 ListTile(
-                  leading: const Icon(
-                    Icons.chat_bubble_outline,
-                    color: Color(0xFFFFFFFF),
-                  ),
                   title: const Text(
-                    'Fale Conosco',
+                    'Ajuda e Suporte',
                     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
                   ),
                   onTap: () {
                     //Função para abrir a página projetos
                   },
                 ),
-                const Divider(
-                  color: Colors.white,
-                ),
                 const ListTile(
                   title: Text(
                     'Política de Privacidade',
                     style: TextStyle(color: Color(0xFFFFFFFF)),
                   ),
-                )
+                ),
+                const ListTile(
+                  title: Text(
+                    'Termos de Uso',
+                    style: TextStyle(color: Color(0xFFFFFFFF)),
+                  ),
+                ),
+                const Divider(
+                  color: Colors.white,
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.miscellaneous_services_sharp,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                  title: const Text(
+                    'Configurações',
+                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                  ),
+                  onTap: () {
+                    //Função para abrir a página projetos
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.exit_to_app,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                  title: const Text(
+                    'Sair',
+                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                  ),
+                  onTap: () {
+                    //Função para abrir a página projetos
+                  },
+                ),
               ],
             ),
           ),
