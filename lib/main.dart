@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'pages/home_page.dart';
+import 'home.dart';
 
 void main() {
   runApp(const MaterialApp(
     title: 'Chronos',
     debugShowCheckedModeBanner: false,
-    home: HomePage(),
+    home: Home(),
   ));
 }
