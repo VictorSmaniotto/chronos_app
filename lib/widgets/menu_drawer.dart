@@ -1,3 +1,4 @@
+import 'package:chronos_app/Pages/projetos_page.dart';
 import 'package:flutter/material.dart';
 
 class MenuDrawer extends StatelessWidget {
@@ -32,7 +33,12 @@ class MenuDrawer extends StatelessWidget {
                     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
                   ),
                   onTap: () {
-                    //Função para abrir a página projetos
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Projetos(),
+                      ),
+                    );
                   },
                 ),
                 ListTile(

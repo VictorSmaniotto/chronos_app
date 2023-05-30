@@ -39,10 +39,24 @@ class _HomeState extends State<Home> {
         //   icon: const Icon(Icons.menu),
         // ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
         ],
       ),
-      body: const CardProjetos(),
+      body: Column(
+        children: const [
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              'Confira os novos projetos em destaque',
+              style: TextStyle(
+                  fontSize: 14,
+                  // color: Color(0xFF0052A1),
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          CardProjetos(),
+        ],
+      ),
       drawer: const MenuDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
