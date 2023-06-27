@@ -28,39 +28,40 @@ class HomePage extends StatelessWidget {
         // ),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.person_rounded)),
         ],
       ),
       drawer: const MenuDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        elevation: 0,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article_outlined),
-            label: 'Mural',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'Projetos',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_rounded),
-            label: 'Perfil',
-          ),
-        ],
-        currentIndex: 0,
-        selectedItemColor: Colors.amber[800],
-        unselectedItemColor: const Color(0xFF0052A1),
-        unselectedIconTheme: const IconThemeData(color: Color(0xFF0052A1)),
-        selectedIconTheme:
-            const IconThemeData(color: Color.fromRGBO(255, 143, 0, 1)),
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   elevation: 0,
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.home,
+      //       ),
+      //       label: 'Home',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.article_outlined),
+      //       label: 'Mural',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.school),
+      //       label: 'Projetos',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.person_rounded),
+      //       label: 'Perfil',
+      //     ),
+      //   ],
+      //   currentIndex: 0,
+      //   selectedItemColor: Colors.amber[800],
+      //   unselectedItemColor: const Color(0xFF0052A1),
+      //   unselectedIconTheme: const IconThemeData(color: Color(0xFF0052A1)),
+      //   selectedIconTheme:
+      //       const IconThemeData(color: Color.fromRGBO(255, 143, 0, 1)),
+      // ),
     );
   }
 }

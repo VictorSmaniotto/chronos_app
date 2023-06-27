@@ -35,32 +35,45 @@ class MenuDrawer extends StatelessWidget {
                     //Função para abrir a página projetos
                   },
                 ),
-                ListTile(
+                 ListTile(
                   leading: const Icon(
-                    Icons.calendar_month,
+                    Icons.person_rounded,
                     color: Color(0xFFFFFFFF),
                   ),
                   title: const Text(
-                    'Eventos',
+                    'Perfil',
                     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
                   ),
                   onTap: () {
                     //Função para abrir a página projetos
                   },
                 ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.article_outlined,
-                    color: Color(0xFFFFFFFF),
-                  ),
-                  title: const Text(
-                    'Mural de Pedidos',
-                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
-                  ),
-                  onTap: () {
-                    //Função para abrir a página projetos
-                  },
-                ),
+                // ListTile(
+                //   leading: const Icon(
+                //     Icons.calendar_month,
+                //     color: Color(0xFFFFFFFF),
+                //   ),
+                //   title: const Text(
+                //     'Eventos',
+                //     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                //   ),
+                //   onTap: () {
+                //     //Função para abrir a página projetos
+                //   },
+                // ),
+                // ListTile(
+                //   leading: const Icon(
+                //     Icons.article_outlined,
+                //     color: Color(0xFFFFFFFF),
+                //   ),
+                //   title: const Text(
+                //     'Mural de Pedidos',
+                //     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                //   ),
+                //   onTap: () {
+                //     //Função para abrir a página projetos
+                //   },
+                // ),
                 const Divider(
                   color: Colors.white,
                 ),
@@ -73,17 +86,24 @@ class MenuDrawer extends StatelessWidget {
                     //Função para abrir a página projetos
                   },
                 ),
-                const ListTile(
-                  title: Text(
+                ListTile(
+                  title: const Text(
                     'Política de Privacidade',
-                    style: TextStyle(color: Color(0xFFFFFFFF)),
+                    style: TextStyle(color: Color(0xFFFFFFFF),  fontSize: 16),
                   ),
+                  onTap: () {
+                    
+                  },
                 ),
-                const ListTile(
-                  title: Text(
+                
+                ListTile(
+                  title: const Text(
                     'Termos de Uso',
-                    style: TextStyle(color: Color(0xFFFFFFFF)),
+                    style: TextStyle(color: Color(0xFFFFFFFF),  fontSize: 16),
                   ),
+                  onTap: () {
+                    
+                  }
                 ),
                 const Divider(
                   color: Colors.white,
