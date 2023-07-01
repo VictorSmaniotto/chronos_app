@@ -32,6 +32,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       drawer: const MenuDrawer(),
+      // body: WebViewWidget(),
       // bottomNavigationBar: BottomNavigationBar(
       //   type: BottomNavigationBarType.fixed,
       //   elevation: 0,
