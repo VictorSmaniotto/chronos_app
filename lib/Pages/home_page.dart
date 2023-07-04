@@ -32,37 +32,27 @@ class HomePage extends StatelessWidget {
         ],
       ),
       drawer: const MenuDrawer(),
-      // body: WebViewWidget(),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   type: BottomNavigationBarType.fixed,
-      //   elevation: 0,
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(
-      //         Icons.home,
-      //       ),
-      //       label: 'Home',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.article_outlined),
-      //       label: 'Mural',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.school),
-      //       label: 'Projetos',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.person_rounded),
-      //       label: 'Perfil',
-      //     ),
-      //   ],
-      //   currentIndex: 0,
-      //   selectedItemColor: Colors.amber[800],
-      //   unselectedItemColor: const Color(0xFF0052A1),
-      //   unselectedIconTheme: const IconThemeData(color: Color(0xFF0052A1)),
-      //   selectedIconTheme:
-      //       const IconThemeData(color: Color.fromRGBO(255, 143, 0, 1)),
-      // ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView.builder(
+          itemCount: 5,
+          itemBuilder: (context, index) {
+            return Card(
+              margin: const EdgeInsets.only(bottom: 20),
+              child: Column(children: [
+                SizedBox(
+                  height: 150,
+                  width: double.infinity,
+                  child: Image.asset(
+                    'assets/projeto3.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                )
+              ]),
+            );
+          },
+        ),
+      ),
     );
   }
 }
