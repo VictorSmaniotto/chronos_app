@@ -23,7 +23,14 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        // title: const Text('Login'),
+        backgroundColor: const Color(0xFF0052A1),
+        elevation: 1,
+        title: Image.asset(
+          'assets/logo-branca.png',
+          width: 120,
+        ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -34,7 +41,17 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/logoChronos.png'),
+                // Image.asset('assets/logoChronos.png'),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF0052A1)),
+                  ),
+                ),
                 const SizedBox(
                   height: 50,
                 ),

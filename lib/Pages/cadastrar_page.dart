@@ -26,6 +26,9 @@ class _CadastrarPageState extends State<CadastrarPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cadastrar'),
+        backgroundColor: const Color(0xFF0052A1),
+        elevation: 1,
+        centerTitle: true,
       ),
       body: ListView(
         children: [
