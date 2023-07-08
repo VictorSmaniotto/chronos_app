@@ -70,7 +70,7 @@ class _CadastrarPageState extends State<CadastrarPage> {
   void cadastrarUser() async {
     if (_formKey.currentState!.validate()) {
       var request = http.MultipartRequest(
-          'POST', Uri.parse("${ApiUrl.baseUrl}/cafastrar"));
+          'POST', Uri.parse("${ApiUrl.baseUrl}/cadastrar"));
       request.fields['nome'] = nomeController.text;
       request.fields['email'] = emailController.text;
       request.fields['password'] = passwordController.text;
@@ -85,7 +85,7 @@ class _CadastrarPageState extends State<CadastrarPage> {
       debugPrint(streamedResponse.body);
 
       var jsonData = jsonDecode(streamedResponse.body);
-      debugPrint(jsonData['errors'][0]);
+      // debugPrint(jsonData['errors'][0]);
 
       if (streamedResponse.statusCode == 200) {
         if (context.mounted) {
@@ -192,6 +192,7 @@ class _CadastrarPageState extends State<CadastrarPage> {
                   ),
                   TextFormField(
                     controller: passwordController,
+                    obscureText: true,
                     decoration: const InputDecoration(labelText: 'Senha'),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -202,6 +203,7 @@ class _CadastrarPageState extends State<CadastrarPage> {
                   ),
                   TextFormField(
                     controller: confirmaPasswordController,
+                    obscureText: true,
                     decoration:
                         const InputDecoration(labelText: 'Confirme sua Senha'),
                     validator: (value) {
@@ -220,9 +222,47 @@ class _CadastrarPageState extends State<CadastrarPage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: cadastrarUser,
-                      child: const Text('Cadastrar'),
+                      child: const Text('Criar Conta'),
                     ),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                    child: Center(
+                      child: Text.rich(
+                        textAlign: TextAlign.center,
+                        TextSpan(
+                          text: 'Ao clicar no botão ',
+                          //
+                          style: TextStyle(),
+                          children: [
+                            TextSpan(
+                              text: 'Criar Conta ',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            TextSpan(
+                                text: 'você está concordando com a nossa '),
+                            TextSpan(
+                              text: 'Política de Privacidade ',
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            TextSpan(text: 'e os nossos '),
+                            TextSpan(
+                              text: 'Termos de Uso',
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            TextSpan(text: '.')
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

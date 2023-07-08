@@ -1,5 +1,7 @@
+import 'package:chronos_app/Pages/home_page.dart';
 import 'package:flutter/material.dart';
 
+import '../helpers/auth.dart';
 import 'cadastrar_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,9 +15,29 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  void loginUser() {
+  void loginUser() async {
     if (_formKey.currentState!.validate()) {
-      debugPrint("Enviado");
+      bool isLogado =
+          await Auth.login(emailController.text, passwordController.text);
+      if (isLogado) {
+        if (context.mounted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ),
+          );
+        }
+      } else {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('usuário ou senha inválido'),
+              backgroundColor: Colors.redAccent,
+            ),
+          );
+        }
+      }
     }
   }
 
@@ -33,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.only(top: 80),
         child: Form(
           key: _formKey,
           child: Padding(
@@ -45,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                 const Padding(
                   padding: EdgeInsets.only(top: 10.0),
                   child: Text(
-                    'Login',
+                    'Acesse sua Conta',
                     style: TextStyle(
                         fontSize: 35,
                         fontWeight: FontWeight.bold,

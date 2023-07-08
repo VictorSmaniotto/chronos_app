@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../helpers/auth.dart';
+
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({super.key});
 
@@ -35,7 +37,7 @@ class MenuDrawer extends StatelessWidget {
                     //Função para abrir a página projetos
                   },
                 ),
-                 ListTile(
+                ListTile(
                   leading: const Icon(
                     Icons.person_rounded,
                     color: Color(0xFFFFFFFF),
@@ -89,22 +91,17 @@ class MenuDrawer extends StatelessWidget {
                 ListTile(
                   title: const Text(
                     'Política de Privacidade',
-                    style: TextStyle(color: Color(0xFFFFFFFF),  fontSize: 16),
+                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
                   ),
-                  onTap: () {
-                    
-                  },
+                  onTap: () {},
                 ),
-                
+
                 ListTile(
-                  title: const Text(
-                    'Termos de Uso',
-                    style: TextStyle(color: Color(0xFFFFFFFF),  fontSize: 16),
-                  ),
-                  onTap: () {
-                    
-                  }
-                ),
+                    title: const Text(
+                      'Termos de Uso',
+                      style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                    ),
+                    onTap: () {}),
                 const Divider(
                   color: Colors.white,
                 ),
@@ -131,7 +128,7 @@ class MenuDrawer extends StatelessWidget {
                     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
                   ),
                   onTap: () {
-                    //Função para abrir a página projetos
+                    Auth.logout(context);
                   },
                 ),
               ],

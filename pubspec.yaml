@@ -38,6 +38,9 @@ dependencies:
   webview_flutter: ^4.2.2
   http: ^0.13.6
   image_picker: ^1.0.0
+  flutter_inappwebview: ^5.7.2+3
+  url_launcher: ^6.1.11
+  shared_preferences: ^2.2.0
 
 dependency_overrides:
   path: ^1.8.3

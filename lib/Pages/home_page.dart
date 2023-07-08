@@ -3,8 +3,11 @@ import 'package:chronos_app/models/projeto.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../helpers/api_url.dart';
+import '../helpers/auth.dart';
 import '../widgets/menu_drawer.dart';
 import 'dart:convert';
+// Import for Android features.
+// Import for iOS features.
 
 // Colors
 //Color(0xFF004A8D)
@@ -26,6 +29,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _listarProjetos = carregarProjetos();
+    Auth.testeLogin(context);
   }
 
   Future<List<Projeto>> carregarProjetos() async {
@@ -53,10 +57,6 @@ class _HomePageState extends State<HomePage> {
           width: 120,
         ),
         centerTitle: true,
-        // leading: IconButton(
-        //   onPressed: () {},
-        //   icon: const Icon(Icons.menu),
-        // ),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: const MenuDrawer(),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(bottom: 8.0, left: 5, right: 5),
         child: FutureBuilder<List<Projeto>>(
           future: _listarProjetos,
           builder: (context, snapshotProjetos) {
@@ -83,12 +83,11 @@ class _HomePageState extends State<HomePage> {
                 itemCount: projetos?.length,
                 itemBuilder: (context, index) {
                   final projeto = projetos![index];
+
                   return GestureDetector(
-                    onTap: () {
-                      //
-                    },
+                    onTap: () {},
                     child: Card(
-                      margin: const EdgeInsets.only(bottom: 20),
+                      margin: const EdgeInsets.only(bottom: 20, top: 5),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
