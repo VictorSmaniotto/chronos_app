@@ -1,9 +1,9 @@
 import 'package:chronos_app/Pages/login_page.dart';
+import 'package:chronos_app/Pages/webview_page.dart';
 import 'package:chronos_app/models/projeto.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../helpers/api_url.dart';
-import '../helpers/auth.dart';
 import '../widgets/menu_drawer.dart';
 import 'dart:convert';
 // Import for Android features.
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _listarProjetos = carregarProjetos();
-    Auth.testeLogin(context);
+    // Auth.testeLogin(context);
   }
 
   Future<List<Projeto>> carregarProjetos() async {
@@ -85,7 +85,15 @@ class _HomePageState extends State<HomePage> {
                   final projeto = projetos![index];
 
                   return GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const WebViewPage(
+                              projeto: ,
+                            ),
+                          ));
+                    },
                     child: Card(
                       margin: const EdgeInsets.only(bottom: 20, top: 5),
                       child: Column(
