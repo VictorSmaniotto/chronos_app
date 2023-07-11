@@ -17,6 +17,7 @@ class _WebViewPageState extends State<WebViewPage> {
       ..loadRequest(
         Uri.parse(widget.projeto),
       );
+    debugPrint(widget.projeto);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Projeto'),

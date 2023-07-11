@@ -87,12 +87,13 @@ class _HomePageState extends State<HomePage> {
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const WebViewPage(
-                              projeto: ,
-                            ),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WebViewPage(
+                            projeto: projeto.link.toString(),
+                          ),
+                        ),
+                      );
                     },
                     child: Card(
                       margin: const EdgeInsets.only(bottom: 20, top: 5),
