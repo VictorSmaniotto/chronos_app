@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           if (_foto != null) ...[
             Padding(
-              padding: const EdgeInsets.only(right: 8),
+              padding: const EdgeInsets.only(right: 8.0),
               child: CircleAvatar(
                 radius: 15,
                 backgroundImage: NetworkImage(_foto!),

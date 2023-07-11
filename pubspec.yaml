@@ -45,7 +45,9 @@ dependency_overrides:
   path: ^1.8.3
 
 flutter_native_splash:
-  image: "assets/logoChronos.png"
+  android_12:
+    image: "assets/logo-branca.png"
+  image: "assets/logo-branca.png"
   android: true
   color: "#42a5f5"
 
