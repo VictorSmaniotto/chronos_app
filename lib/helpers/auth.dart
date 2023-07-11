@@ -25,7 +25,7 @@ class Auth {
       preferences.setString('email', usuario['email']);
       preferences.setString('nome', usuario['nome']);
       preferences.setString('token', usuario['token']);
-      // preferences.setString('foto', usuario['foto']);
+      preferences.setString('foto', usuario['foto']);
 
       return true;
     }
@@ -62,5 +62,12 @@ class Auth {
         );
       }
     }
+  }
+
+  static Future<String?> carregarFoto() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+
+    String? foto = preferences.getString('foto');
+    return foto;
   }
 }

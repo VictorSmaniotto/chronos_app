@@ -4,6 +4,7 @@ import 'package:chronos_app/models/projeto.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../helpers/api_url.dart';
+import '../helpers/auth.dart';
 import '../widgets/menu_drawer.dart';
 import 'dart:convert';
 // Import for Android features.
@@ -24,12 +25,22 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late Future<List<Projeto>> _listarProjetos;
+  String? _foto;
 
   @override
   void initState() {
     super.initState();
     _listarProjetos = carregarProjetos();
+    carregarFoto();
     // Auth.testeLogin(context);
+  }
+
+  void carregarFoto() {
+    Auth.carregarFoto().then((foto) {
+      setState(() {
+        _foto = foto;
+      });
+    });
   }
 
   Future<List<Projeto>> carregarProjetos() async {
@@ -59,16 +70,26 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LoginPage(),
-                  ),
-                );
-              },
-              icon: const Icon(Icons.person_rounded)),
+          if (_foto != null) ...[
+            Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: CircleAvatar(
+                radius: 15,
+                backgroundImage: NetworkImage(_foto!),
+              ),
+            ),
+          ] else ...[
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPage(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.person_rounded)),
+          ]
         ],
       ),
       drawer: const MenuDrawer(),

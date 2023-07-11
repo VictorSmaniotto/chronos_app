@@ -14,6 +14,11 @@ class _WebViewPageState extends State<WebViewPage> {
   Widget build(BuildContext context) {
     var controllerWeb = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setNavigationDelegate(NavigationDelegate(onProgress: (int progress) {
+        const Center(
+          child: CircularProgressIndicator.adaptive(),
+        );
+      }))
       ..loadRequest(
         Uri.parse(widget.projeto),
       );
@@ -21,6 +26,7 @@ class _WebViewPageState extends State<WebViewPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Projeto'),
+        backgroundColor: const Color(0xFF0052A1),
       ),
       body: WebViewWidget(controller: controllerWeb),
     );
