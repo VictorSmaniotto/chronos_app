@@ -1,4 +1,3 @@
-import 'package:chronos_app/Pages/login_page.dart';
 import 'package:chronos_app/Pages/webview_page.dart';
 import 'package:chronos_app/models/projeto.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +6,8 @@ import '../helpers/api_url.dart';
 import '../helpers/auth.dart';
 import '../widgets/menu_drawer.dart';
 import 'dart:convert';
+
+import 'login_page.dart';
 // Import for Android features.
 // Import for iOS features.
 
@@ -32,6 +33,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _listarProjetos = carregarProjetos();
     carregarFoto();
+
     // Auth.testeLogin(context);
   }
 
@@ -41,6 +43,34 @@ class _HomePageState extends State<HomePage> {
         _foto = foto;
       });
     });
+  }
+
+  Future<void> filtrarProjetos(
+      {int? categoriaId, String? termoPesquisa}) async {
+    _listarProjetos = carregarProjetos();
+    if (categoriaId != null) {
+      setState(() {
+        _listarProjetos = _listarProjetos.then((projetos) => projetos
+            .where((projeto) => projeto.categoriaId == categoriaId)
+            .toList());
+      });
+    }
+
+    if (termoPesquisa != null && termoPesquisa.isNotEmpty) {
+      setState(() {
+        _listarProjetos = _listarProjetos.then((projetos) => projetos
+            .where(
+              (projeto) =>
+                  projeto.titulo
+                      .toLowerCase()
+                      .contains(termoPesquisa.toLowerCase()) ||
+                  projeto.descricao.toLowerCase().contains(
+                        termoPesquisa.toLowerCase(),
+                      ),
+            )
+            .toList());
+      });
+    }
   }
 
   Future<List<Projeto>> carregarProjetos() async {
@@ -57,19 +87,57 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  Icon searchIcon = const Icon(Icons.search);
+  Widget titulo = Image.asset(
+    'assets/logo-branca.png',
+    width: 120,
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF0052A1),
         elevation: 1,
-        title: Image.asset(
-          'assets/logo-branca.png',
-          width: 120,
-        ),
+        title: titulo,
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(
+              onPressed: () {
+                setState(() {
+                  if (searchIcon.icon == Icons.search) {
+                    searchIcon = const Icon(Icons.cancel);
+                    titulo = ListTile(
+                      leading: const Icon(
+                        Icons.search,
+                        color: Colors.white,
+                        size: 28,
+                      ),
+                      title: TextField(
+                        keyboardType: TextInputType.text,
+                        decoration: const InputDecoration(
+                          hintText: 'Pesquisar projetos',
+                          hintStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
+                          border: InputBorder.none,
+                        ),
+                        onSubmitted: (texto) {
+                          filtrarProjetos(termoPesquisa: texto);
+                        },
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    );
+                  } else {
+                    searchIcon = const Icon(Icons.search);
+                    titulo = Image.asset(
+                      'assets/logo-branca.png',
+                      width: 120,
+                    );
+                  }
+                });
+              },
+              icon: searchIcon),
           if (_foto != null) ...[
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
@@ -100,10 +168,15 @@ class _HomePageState extends State<HomePage> {
           builder: (context, snapshotProjetos) {
             if (snapshotProjetos.hasData) {
               final projetos = snapshotProjetos.data;
+              if (projetos!.isEmpty) {
+                return const Center(
+                  child: Text('Nenhum projeto encontrado'),
+                );
+              }
               return ListView.builder(
-                itemCount: projetos?.length,
+                itemCount: projetos.length,
                 itemBuilder: (context, index) {
-                  final projeto = projetos![index];
+                  final projeto = projetos[index];
 
                   return GestureDetector(
                     onTap: () {

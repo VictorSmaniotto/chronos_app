@@ -1,3 +1,6 @@
+import 'package:chronos_app/Pages/home_page.dart';
+import 'package:chronos_app/Pages/politica_page.dart';
+import 'package:chronos_app/Pages/termos_page.dart';
 import 'package:flutter/material.dart';
 
 import '../helpers/auth.dart';
@@ -34,7 +37,12 @@ class MenuDrawer extends StatelessWidget {
                     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
                   ),
                   onTap: () {
-                    //Função para abrir a página projetos
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                    );
                   },
                 ),
                 ListTile(
@@ -79,21 +87,28 @@ class MenuDrawer extends StatelessWidget {
                 const Divider(
                   color: Colors.white,
                 ),
-                ListTile(
-                  title: const Text(
-                    'Ajuda e Suporte',
-                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
-                  ),
-                  onTap: () {
-                    //Função para abrir a página projetos
-                  },
-                ),
+                // ListTile(
+                //   title: const Text(
+                //     'Ajuda e Suporte',
+                //     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+                //   ),
+                //   onTap: () {
+                //     //Função para abrir a página projetos
+                //   },
+                // ),
                 ListTile(
                   title: const Text(
                     'Política de Privacidade',
                     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PoliticaPage(),
+                      ),
+                    );
+                  },
                 ),
 
                 ListTile(
@@ -101,7 +116,14 @@ class MenuDrawer extends StatelessWidget {
                       'Termos de Uso',
                       style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
                     ),
-                    onTap: () {}),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TermosPage(),
+                        ),
+                      );
+                    }),
                 const Divider(
                   color: Colors.white,
                 ),
